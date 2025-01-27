@@ -1,6 +1,6 @@
 // import './App.css'
 import HomePage from "./components/HomePage"
-// import Contacts from "./components/Contacts"
+import Products from "./components/Products"
 import Layout from "./components/Layout"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 // import ContactDetails from "./components/ContactDetails"
@@ -13,7 +13,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage/>}/>
-          {/* <Route path="/contacts" element={<Contacts/>}/> */}
+          <Route path="/products" element={<Products/>}/>
           {/* <Route path="/contacts/:id" element={<ContactDetails/>}/> */}
         </Routes>
       </Layout>
