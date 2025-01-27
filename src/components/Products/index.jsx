@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import classes from "./index.module.css"; // ایمپورت فایل استایل
-
+import classes from "./index.module.css";
 const Products = () => {
   const [products, setProducts] = useState([]);
 
@@ -13,7 +12,6 @@ const Products = () => {
 
   return (
     <div className={classes.products}>
-      <h1 className={classes.title}>Products</h1>
       <div className={classes.productsGrid}>
         {products.map((product) => (
           <div key={product.id} className={classes.productCard}>
