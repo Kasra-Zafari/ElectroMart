@@ -1,4 +1,4 @@
-import './App.css'
+// import './App.css'
 import HomePage from "./components/HomePage"
 // import Contacts from "./components/Contacts"
 import Layout from "./components/Layout"
