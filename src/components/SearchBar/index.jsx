@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { Search } from "lucide-react";
 import classes from "./index.module.css";
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
-  const handleSearch = (e) => {
+  const handleInputChange = (e) => {
     setQuery(e.target.value);
-    onSearch(e.target.value);
+  };
+
+  const handleSearchClick = () => {
+    onSearch(query);
   };
 
   return (
@@ -16,8 +20,11 @@ const SearchBar = ({ onSearch }) => {
         className={classes.searchInput}
         placeholder="Search for products..."
         value={query}
-        onChange={handleSearch}
+        onChange={handleInputChange}
       />
+      <button className={classes.searchButton} onClick={handleSearchClick}>
+        <Search size={20} />
+      </button>
     </div>
   );
 };
