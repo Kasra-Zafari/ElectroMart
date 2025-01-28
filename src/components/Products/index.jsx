@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "./index.module.css";
 import SearchBar from "../SearchBar";
+import Sort from "../Sort";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-
+  const [sortOption, setSortOption] = useState("default");
 
   useEffect(() => {
     fetch("https://fakestoreapi.in/api/products")
@@ -23,13 +24,23 @@ const Products = () => {
       });
   }, []);
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredProducts = products
+    .filter((product) => product.title.toLowerCase().includes(searchQuery.toLowerCase()))
+    .sort((a, b) => {
+      if (sortOption === "price-low") return a.price - b.price;
+      if (sortOption === "price-high") return b.price - a.price;
+      if (sortOption === "title-asc") return a.title.localeCompare(b.title);
+      if (sortOption === "title-desc") return b.title.localeCompare(a.title);
+      return 0;
+    });
 
   return (
     <>
-      <SearchBar onSearch={setSearchQuery} />
+      <div className={classes.topBar}>
+        <SearchBar onSearch={setSearchQuery} />
+        <Sort onSortChange={setSortOption} />
+      </div>
+      
       <div className={classes.products}>
         {isLoading && (
           <div className={classes.loadingContainer}>
