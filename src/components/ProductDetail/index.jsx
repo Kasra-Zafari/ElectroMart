@@ -31,11 +31,14 @@ const ProductDetail = () => {
 
   return (
     <div className={classes.productDetail}>
-      <img src={product.product.image} alt={product.product.title} className={classes.image} />
-      <h2>{product.product.title}</h2>
-      <p className={classes.price}>${product.product.price}</p>
-      <p>{product.product.description}</p>
-      <button className={classes.button}>Add to Cart</button>
+      <div className={classes.imageContainer}>
+        <img src={product.product.image} alt={product.product.title} className={classes.image} />
+      </div>
+      <div className={classes.detailsContainer}>
+        <h1 className={classes.title}>{product.product.title}</h1>
+        <p className={classes.price}>${product.product.price}</p>
+        <p className={classes.description}>{product.product.description}</p>
+      </div>
     </div>
   );
 };
