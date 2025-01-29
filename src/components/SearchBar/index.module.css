@@ -49,4 +49,5 @@
   .searchInput:focus {
     border-color: #ffa200;
     box-shadow: 0 0 5px rgba(255, 162, 0, 0.5);
+    outline: none;
 }
