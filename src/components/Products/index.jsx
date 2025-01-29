@@ -12,7 +12,7 @@ const Products = () => {
   const [sortOption, setSortOption] = useState("default");
 
   useEffect(() => {
-    fetch("https://fakestoreapi.in/api/products")
+    fetch('https://dummyjson.com/products')
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.products);
@@ -27,6 +27,7 @@ const Products = () => {
   const filteredProducts = products
     .filter((product) => product.title.toLowerCase().includes(searchQuery.toLowerCase()))
     .sort((a, b) => {
+      if (sortOption === "new") return b.id - a.id;
       if (sortOption === "price-low") return a.price - b.price;
       if (sortOption === "price-high") return b.price - a.price;
       if (sortOption === "title-asc") return a.title.localeCompare(b.title);
@@ -37,8 +38,8 @@ const Products = () => {
   return (
     <>
       <div className={classes.topBar}>
-        <SearchBar onSearch={setSearchQuery} />
         <Sort onSortChange={setSortOption} />
+        <SearchBar onSearch={setSearchQuery} />
       </div>
       
       <div className={classes.products}>
@@ -55,7 +56,7 @@ const Products = () => {
             {filteredProducts.map((product) => (
               <Link key={product.id} to={`/product/${product.id}`} className={classes.productLink}>
                 <div className={classes.productCard}>
-                  <img src={product.image} alt={product.title} className={classes.image} />
+                  <img src={product.images[0]} alt={product.title} className={classes.image} />
                   <h2 className={classes.productTitle}>{product.title}</h2>
                   <p className={classes.price}>${product.price}</p>
                   <button className={classes.button}>View Details</button>

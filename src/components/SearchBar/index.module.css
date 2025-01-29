@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    width: 100%;
+    width: 50%;
     margin: 20px;
     justify-content: center;
   }
@@ -12,7 +12,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 100%;
   }
   
   .searchInput {
@@ -38,7 +38,7 @@
     background: black;
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 6px 8px;
     border-radius: 50%;
     cursor: pointer;
   }
@@ -46,4 +46,7 @@
   .searchButton:hover {
     background: #ffa200;
   }
-  
+  .searchInput:focus {
+    border-color: #ffa200;
+    box-shadow: 0 0 5px rgba(255, 162, 0, 0.5);
+}

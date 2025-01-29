@@ -9,7 +9,7 @@ const ProductDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.in/api/products/${id}`)
+    fetch(`https://dummyjson.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -32,12 +32,12 @@ const ProductDetail = () => {
   return (
     <div className={classes.productDetail}>
       <div className={classes.imageContainer}>
-        <img src={product.product.image} alt={product.product.title} className={classes.image} />
+        <img src={product.images} alt={product.title} className={classes.image} />
       </div>
       <div className={classes.detailsContainer}>
-        <h1 className={classes.title}>{product.product.title}</h1>
-        <p className={classes.price}>${product.product.price}</p>
-        <p className={classes.description}>{product.product.description}</p>
+        <h1 className={classes.title}>{product.title}</h1>
+        <p className={classes.price}>${product.price}</p>
+        <p className={classes.description}>{product.description}</p>
       </div>
     </div>
   );
