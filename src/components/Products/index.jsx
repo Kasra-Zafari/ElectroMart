@@ -7,27 +7,29 @@ import Filters from "../Filters";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [categoriesWithProducts, setCategoriesWithProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("default");
 
   // filter state
-  // filter state
-const [filters, setFilters] = useState({
-  categories: [],
-  brands: [],
-  priceRange: [0, 1000],
-  inStock: false,
-  discount: false,
-  rating: null,
-});
+  const [filters, setFilters] = useState({
+    categories: [],
+    brands: [],
+    priceRange: [0, 1000],
+    inStock: false,
+    discount: false,
+    rating: null,
+  });
 
   useEffect(() => {
     fetch('https://dummyjson.com/products')
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.products);
+        const categories = [...new Set(data.products.map(product => product.category))];
+        setCategoriesWithProducts(categories);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -44,7 +46,6 @@ const [filters, setFilters] = useState({
     .filter((product) =>
       filters.categories.length === 0 || filters.categories.includes(product.category)
     )
-    
     .filter((product) =>
       filters.brands.length === 0 || filters.brands.includes(product.brand)
     )
@@ -60,7 +61,6 @@ const [filters, setFilters] = useState({
     .filter((product) =>
       filters.rating === null || Math.round(product.rating) === filters.rating
     )
-
     // sort
     .sort((a, b) => {
       if (sortOption === "new") return b.id - a.id;
@@ -79,8 +79,7 @@ const [filters, setFilters] = useState({
       </div>
 
       <div className={classes.mainContainer}>
-        <Filters filters={filters} setFilters={setFilters} />
-
+        <Filters filters={filters} setFilters={setFilters} categories={categoriesWithProducts} />
 
         <div className={classes.products}>
           {isLoading && (
@@ -93,16 +92,20 @@ const [filters, setFilters] = useState({
 
           {!isLoading && !error && (
             <div className={classes.productsGrid}>
-              {filteredProducts.map((product) => (
-                <Link key={product.id} to={`/product/${product.id}`} className={classes.productLink}>
-                  <div className={classes.productCard}>
-                    <img src={product.images[0]} alt={product.title} className={classes.image} />
-                    <h2 className={classes.productTitle}>{product.title}</h2>
-                    <p className={classes.price}>${product.price}</p>
-                    <button className={classes.button}>View Details</button>
-                  </div>
-                </Link>
-              ))}
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map((product) => (
+                  <Link key={product.id} to={`/product/${product.id}`} className={classes.productLink}>
+                    <div className={classes.productCard}>
+                      <img src={product.images[0]} alt={product.title} className={classes.image} />
+                      <h2 className={classes.productTitle}>{product.title}</h2>
+                      <p className={classes.price}>${product.price}</p>
+                      <button className={classes.button}>View Details</button>
+                    </div>
+                  </Link>
+                ))
+              ) : (
+                <p>No products found</p>
+              )}
             </div>
           )}
         </div>
