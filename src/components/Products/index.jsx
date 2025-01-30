@@ -20,7 +20,7 @@ const Products = () => {
     priceRange: [0, 1000],
     inStock: false,
     discount: false,
-    rating: null,
+    // rating: null,
   });
 
   useEffect(() => {
@@ -58,9 +58,9 @@ const Products = () => {
     .filter((product) =>
       !filters.discount || product.discountPercentage > 0
     )
-    .filter((product) =>
-      filters.rating === null || Math.round(product.rating) === filters.rating
-    )
+    // .filter((product) =>
+    //   filters.rating === null || Math.round(product.rating) === filters.rating
+    // )
     // sort
     .sort((a, b) => {
       if (sortOption === "new") return b.id - a.id;

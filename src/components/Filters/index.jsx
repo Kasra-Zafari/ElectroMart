@@ -37,9 +37,9 @@ const Filters = ({ filters, setFilters, categories }) => {
     const [min, max] = priceRange;
 
     if (e.target.name === "min") {
-      setPriceRange([Math.min(value, max - 10), max]); // حداقل باید از ماکزیمم کمتر باشد
+      setPriceRange([Math.min(value, max - 10), max]);
     } else {
-      setPriceRange([min, Math.max(value, min + 10)]); // ماکزیمم باید از مینیمم بیشتر باشد
+      setPriceRange([min, Math.max(value, min + 10)]);
     }
   };
 
@@ -130,7 +130,7 @@ const Filters = ({ filters, setFilters, categories }) => {
       </div>
 
       {/* rate */}
-      <div className={classes.filterGroup}>
+      {/* <div className={classes.filterGroup}>
         <h4>Customer Rating</h4>
         {[5, 4, 3, 2, 1].map((star) => (
           <label key={star}>
@@ -138,7 +138,7 @@ const Filters = ({ filters, setFilters, categories }) => {
             {star} ⭐ & up
           </label>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
