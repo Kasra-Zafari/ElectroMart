@@ -13,14 +13,15 @@ const Products = () => {
   const [sortOption, setSortOption] = useState("default");
 
   // filter state
-  const [filters, setFilters] = useState({
-    categories: [],
-    brands: [],
-    priceRange: [0, 1000],
-    inStock: false,
-    discount: false,
-    rating: null,
-  });
+  // filter state
+const [filters, setFilters] = useState({
+  categories: [],
+  brands: [],
+  priceRange: [0, 1000],
+  inStock: false,
+  discount: false,
+  rating: null,
+});
 
   useEffect(() => {
     fetch('https://dummyjson.com/products')
@@ -43,6 +44,7 @@ const Products = () => {
     .filter((product) =>
       filters.categories.length === 0 || filters.categories.includes(product.category)
     )
+    
     .filter((product) =>
       filters.brands.length === 0 || filters.brands.includes(product.brand)
     )
@@ -58,6 +60,7 @@ const Products = () => {
     .filter((product) =>
       filters.rating === null || Math.round(product.rating) === filters.rating
     )
+
     // sort
     .sort((a, b) => {
       if (sortOption === "new") return b.id - a.id;
@@ -77,6 +80,7 @@ const Products = () => {
 
       <div className={classes.mainContainer}>
         <Filters filters={filters} setFilters={setFilters} />
+
 
         <div className={classes.products}>
           {isLoading && (

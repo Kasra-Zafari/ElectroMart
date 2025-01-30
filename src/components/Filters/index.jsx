@@ -51,17 +51,19 @@ const Filters = ({ filters, setFilters }) => {
       <div className={classes.filterGroup}>
         <h4>Category</h4>
         {categories.map((category, index) => (
-          <label key={`${category}-${index}`}>
+          <label key={`${category.slug}-${index}`}>
             <input
               type="checkbox"
-              value={category}
+              value={category.slug}
               onChange={(e) => {
                 setSelectedCategories((prev) =>
-                  e.target.checked ? [...prev, category] : prev.filter((c) => c !== category)
+                  e.target.checked
+                    ? [...prev, category.slug]
+                    : prev.filter((c) => c !== category.slug)
                 );
               }}
             />
-            {typeof category === 'string' ? category : category.name}
+            {category.name}
           </label>
         ))}
       </div>
