@@ -28,7 +28,6 @@ nav button:hover {
     color: #ffa200;
 }
 
-
 .header div button {
     background-color: inherit;
     color: white;
@@ -36,7 +35,7 @@ nav button:hover {
     border: 1px solid white;
     border-radius: 20px;
     cursor: pointer;
-
+    margin-left: 10px;
 }
 
 .header div button:hover {
