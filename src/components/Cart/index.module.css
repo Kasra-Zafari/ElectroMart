@@ -1,0 +1,127 @@
+.cartPage {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cartPage h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cartItem {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.cartItem:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cartImage {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+}
+
+.cartItem h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.cartItem p {
+    font-size: 16px;
+    color: #555;
+}
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.quantityControls button {
+    background: #007bff;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quantityControls button:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+.quantityControls span {
+    font-size: 20px;
+    font-weight: bold;
+    min-width: 35px;
+    text-align: center;
+    display: inline-block;
+}
+
+.removeButton {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.removeButton:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+
+.emptyCart {
+    font-size: 18px;
+    color: #777;
+    margin-top: 20px;
+}
+
+.emptyCart a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.emptyCart a:hover {
+    text-decoration: underline;
+}

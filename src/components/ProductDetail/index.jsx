@@ -8,7 +8,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { addToCart } = useCart();
+  const { addToCart, cart, increaseQuantity, decreaseQuantity } = useCart();
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/${id}`)
@@ -31,16 +31,27 @@ const ProductDetail = () => {
     return <h2>{error}</h2>;
   }
 
+  const cartItem = cart.find((item) => item.id === product.id);
+
   return (
     <div className={classes.productDetail}>
       <div className={classes.imageContainer}>
-        <img src={product.images[0]} alt={product.title} className={classes.image} /> 
+        <img src={product.images[0]} alt={product.title} className={classes.image} />
       </div>
       <div className={classes.detailsContainer}>
         <h1 className={classes.title}>{product.title}</h1>
         <p className={classes.price}>${product.price}</p>
         <p className={classes.description}>{product.description}</p>
-        <button onClick={() => addToCart(product)}>Add to Cart</button>
+
+        {cartItem ? (
+          <div className={classes.quantityControls}>
+            <button onClick={() => decreaseQuantity(product.id)}>-</button>
+            <span>{cartItem.quantity}</span>
+            <button onClick={() => increaseQuantity(product.id)}>+</button>
+          </div>
+        ) : (
+          <button onClick={() => addToCart(product)}>Add to Cart</button>
+        )}
       </div>
     </div>
   );
