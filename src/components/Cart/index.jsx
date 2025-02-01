@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 import classes from "./index.module.css";
 
 const Cart = () => {
-    const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
+    const { cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart } = useCart();
+
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2);
 
     return (
         <div className={classes.cartPage}>
-            <h1>Your Cart</h1>
+            <div className={classes.headerContainer}>
+                <h1>Your Cart</h1>
+                <button onClick={clearCart} className={classes.clearCartButton}>Clear Cart</button>
+            </div>
             {cart.length === 0 ? (
                 <p className={classes.emptyCart}>
                     Your cart is empty. <Link to="/products">Go Shopping</Link>
@@ -42,6 +48,13 @@ const Cart = () => {
                             <p className={classes.price}>${(product.price * product.quantity).toFixed(2)}</p>
                         </div>
                     ))}
+                </div>
+            )}
+            {cart.length > 0 && (
+                <div className={classes.cartSummary}>
+                    <p>Total Items: {totalItems}</p>
+                    <p>Total Price: ${totalPrice}</p>
+                    <button className={classes.checkoutButton}>Proceed to Checkout</button>
                 </div>
             )}
         </div>
