@@ -5,7 +5,8 @@
     border-radius: 12px;
     text-align: center;
 }
-h1{
+
+h1 {
     margin: 20px;
 }
 
@@ -30,7 +31,7 @@ h1{
 
 .tableHeader span {
     padding-bottom: 8px;
-    margin:0 4rem;
+    margin: 0 4rem;
     border-bottom: 3px solid #ffa200;
 }
 
@@ -130,7 +131,8 @@ h1{
     color: #343131;
     font-weight: bold;
 }
-.price{
+
+.price {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -146,7 +148,8 @@ h1{
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     margin-top: 20px;
 }
-.cartSummary p{
+
+.cartSummary p {
     font-size: 16px;
     color: #343131;
     font-weight: bold;
@@ -184,4 +187,14 @@ h1{
 
 .clearCartButton:hover {
     background: #c82333;
+}
+
+.emptyCart {
+    font-size: 16px;
+    color: #343131;
+    font-weight: bold
+}
+
+.emptyCartLink {
+    color: #ffa200;
 }

@@ -12,11 +12,16 @@ const Cart = () => {
         <div className={classes.cartPage}>
             <div className={classes.headerContainer}>
                 <h1>Your Cart</h1>
-                <button onClick={clearCart} className={classes.clearCartButton}>Clear Cart</button>
+                {/* دکمه Clear Cart فقط زمانی نمایش داده می‌شود که سبد خرید پر باشد */}
+                {cart.length > 0 && (
+                    <button onClick={clearCart} className={classes.clearCartButton}>
+                        Clear Cart
+                    </button>
+                )}
             </div>
             {cart.length === 0 ? (
                 <p className={classes.emptyCart}>
-                    Your cart is empty. <Link to="/products">Go Shopping</Link>
+                    Your cart is empty. <Link to="/products" className={classes.emptyCartLink}>Go Shopping</Link>
                 </p>
             ) : (
                 <div className={classes.cartTable}>
