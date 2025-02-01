@@ -46,3 +46,79 @@
     color: #666;
     line-height: 1.6;
 }
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* فاصله بین دکمه‌ها */
+    justify-content: center;
+}
+
+.quantityButton {
+    background: #ffa200;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.quantityButton:hover {
+    background: #e69500;
+    transform: scale(1.1);
+}
+
+.trashButton {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.trashButton:hover {
+    background: #cc0000;
+    transform: scale(1.1);
+}
+
+.addToCartButton {
+    background: #ffa200;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.addToCartButton:hover {
+    background: #e69500;
+    transform: scale(1.1);
+}
+
+.quantity {
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 35px;
+    text-align: center;
+    display: inline-block;
+    color: #343131;
+}

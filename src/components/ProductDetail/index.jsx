@@ -46,15 +46,35 @@ const ProductDetail = () => {
         {cartItem ? (
           <div className={classes.quantityControls}>
             {cartItem.quantity > 1 ? (
-              <button onClick={() => decreaseQuantity(product.id)}>-</button>
+              <button
+                onClick={() => decreaseQuantity(product.id)}
+                className={classes.quantityButton}
+              >
+                -
+              </button>
             ) : (
-              <button onClick={() => removeFromCart(product.id)}>🗑️</button>
+              <button
+                onClick={() => removeFromCart(product.id)}
+                className={classes.trashButton}
+              >
+                🗑️
+              </button>
             )}
-            <span>{cartItem.quantity}</span>
-            <button onClick={() => increaseQuantity(product.id)}>+</button>
+            <span className={classes.quantity}>{cartItem.quantity}</span>
+            <button
+              onClick={() => increaseQuantity(product.id)}
+              className={classes.quantityButton}
+            >
+              +
+            </button>
           </div>
         ) : (
-          <button onClick={() => addToCart(product)}>Add to Cart</button>
+          <button
+            onClick={() => addToCart(product)}
+            className={classes.addToCartButton}
+          >
+            Add to Cart
+          </button>
         )}
       </div>
     </div>
