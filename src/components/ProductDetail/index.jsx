@@ -8,7 +8,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { addToCart, cart, increaseQuantity, decreaseQuantity } = useCart();
+  const { addToCart, cart, increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/${id}`)
@@ -45,7 +45,11 @@ const ProductDetail = () => {
 
         {cartItem ? (
           <div className={classes.quantityControls}>
-            <button onClick={() => decreaseQuantity(product.id)}>-</button>
+            {cartItem.quantity > 1 ? (
+              <button onClick={() => decreaseQuantity(product.id)}>-</button>
+            ) : (
+              <button onClick={() => removeFromCart(product.id)}>🗑️</button>
+            )}
             <span>{cartItem.quantity}</span>
             <button onClick={() => increaseQuantity(product.id)}>+</button>
           </div>

@@ -9,22 +9,37 @@ const Cart = () => {
         <div className={classes.cartPage}>
             <h1>Your Cart</h1>
             {cart.length === 0 ? (
-                <p>Your cart is empty. <Link to="/products">Go Shopping</Link></p>
+                <p className={classes.emptyCart}>
+                    Your cart is empty. <Link to="/products">Go Shopping</Link>
+                </p>
             ) : (
-                <div className={classes.cartItems}>
+                <div className={classes.cartTable}>
+                    <div className={classes.tableHeader}>
+                        <span>Product</span>
+                        <span>Quantity</span>
+                        <span>Unit Price</span>
+                        <span>Total Price</span>
+                    </div>
+
                     {cart.map((product) => (
-                        <div key={product.id} className={classes.cartItem}>
-                            <img src={product.images[0]} alt={product.title} className={classes.cartImage} />
-                            <div>
-                                <h2>{product.title}</h2>
-                                <p>${product.price} x {product.quantity} = ${product.price * product.quantity}</p>
-                                <div className={classes.quantityControls}>
-                                    <button onClick={() => decreaseQuantity(product.id)}>-</button>
-                                    <span>{product.quantity}</span>
-                                    <button onClick={() => increaseQuantity(product.id)}>+</button>
-                                </div>
-                                <button onClick={() => removeFromCart(product.id)}>Remove</button>
+                        <div key={product.id} className={classes.cartRow}>
+                            <div className={classes.productInfo}>
+                                <img src={product.images[0]} alt={product.title} className={classes.cartImage} />
+                                <span className={classes.productTitle}>{product.title}</span>
                             </div>
+                            <div className={classes.quantityControls}>
+                                {product.quantity > 1 ? (
+                                    <button onClick={() => decreaseQuantity(product.id)}>-</button>
+                                ) : (
+                                    <button onClick={() => removeFromCart(product.id)} className={classes.trashButton}>
+                                        🗑️
+                                    </button>
+                                )}
+                                <span>{product.quantity}</span>
+                                <button onClick={() => increaseQuantity(product.id)}>+</button>
+                            </div>
+                            <p className={classes.price}>${product.price}</p>
+                            <p className={classes.price}>${(product.price * product.quantity).toFixed(2)}</p>
                         </div>
                     ))}
                 </div>
