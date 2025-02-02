@@ -112,7 +112,7 @@ const Filters = ({ filters, setFilters, categories }) => {
       </div>
 
       {/* stock */}
-      <div className={classes.filterGroup}>
+      <div className={classes.filterGroupToggleSwitch}>
         <h4>Stock</h4>
         <label className={classes.toggleSwitch}>
           <input type="checkbox" checked={inStock} onChange={() => setInStock((prev) => !prev)} />
@@ -121,7 +121,7 @@ const Filters = ({ filters, setFilters, categories }) => {
       </div>
 
       {/* discount */}
-      <div className={classes.filterGroup}>
+      <div className={classes.filterGroupToggleSwitch}>
         <h4>Discount</h4>
         <label className={classes.toggleSwitch}>
           <input type="checkbox" checked={hasDiscount} onChange={() => setHasDiscount((prev) => !prev)} />

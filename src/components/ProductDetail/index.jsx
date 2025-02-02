@@ -24,7 +24,11 @@ const ProductDetail = () => {
   }, [id]);
 
   if (isLoading) {
-    return <h2>Loading product details...</h2>;
+    return (
+      <div className={classes.loadingContainer}>
+        <div className={classes.loadingSpinner}></div>
+      </div>
+    )
   }
 
   if (error) {
