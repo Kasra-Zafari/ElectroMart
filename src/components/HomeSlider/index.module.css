@@ -1,18 +1,32 @@
-.slide {
+.sliderContainer {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slide {
     position: relative;
     text-align: center;
   }
   
+  .image {
+    width: 100%;
+    height: 516px;
+    object-fit: cover;
+    display: block;
+  }
+  
   .button {
     position: absolute;
-    bottom: 20px;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     background-color: #ff6600;
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     border-radius: 5px;
   }
@@ -20,28 +34,71 @@
   .button:hover {
     background-color: #ff4500;
   }
-  .slick-slide {
-    display: block !important;
+  
+  .slick-dots {
+    position: absolute;
+    bottom: 15px !important;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+  }
+  
+  .slick-dots li {
+    margin: 0 5px;
+  }
+  
+  .slick-dots li button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .slick-dots li button:before {
+    font-size: 12px !important;
+    color: #ffffff !important;
+    opacity: 0.7 !important;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #ff6600 !important;
+    opacity: 1 !important;
+    font-size: 14px !important;
+  }
+  
+  .slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  .slick-slide div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .slick-prev {
+    left: 10px;
   }
-
-  .image {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    display: block;
+  
+  .slick-next {
+    right: 10px;
   }
-
-  .sliderContainer {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    overflow: visible;
+  
+  .slick-prev:before, .slick-next:before {
+    font-size: 30px;
+    color: #ffffff !important;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
   }
+  
+  .slick-prev:hover:before, .slick-next:hover:before {
+    background-color: rgba(255, 102, 0, 0.8);
+  }
+  
