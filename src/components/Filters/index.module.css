@@ -1,5 +1,5 @@
 .filtersContainer {
-  width: 250px;
+  width: 270px;
   padding: 16px;
   background: #fff;
   border-radius: 8px;
@@ -11,6 +11,7 @@
   max-height: 90vh;
   position: sticky;
   top: 10px;
+  max-width: 250px;
 }
 
 .filtersContainer::-webkit-scrollbar {
@@ -165,3 +166,21 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
+
+  .clearButton {
+    color: #343131;
+    padding: 12px 0;
+    border: 1px solid #343131;
+    border-radius: 20px;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px 0;
+    /* background-color: #ffffff; */
+  }
+  
+  .clearButton:hover {
+    color: #ffa200;
+    border-color: #ffa200;
+  }
+  

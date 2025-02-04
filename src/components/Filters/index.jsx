@@ -64,6 +64,23 @@ const Filters = ({ filters, setFilters, categories }) => {
     };
   }, [location.pathname]);
 
+  const clearFilters = () => {
+    setSelectedCategories([]);
+    setSelectedBrands([]);
+    setPriceRange([0, 1000]);
+    setInStock(false);
+    setHasDiscount(false);
+    setRating(null);
+
+    // clear localStorage
+    localStorage.removeItem("selectedCategories");
+    localStorage.removeItem("selectedBrands");
+    localStorage.removeItem("priceRange");
+    localStorage.removeItem("inStock");
+    localStorage.removeItem("hasDiscount");
+    localStorage.removeItem("rating");
+  };
+
   // price
   const handlePriceChange = (e) => {
     const value = Number(e.target.value);
@@ -79,7 +96,9 @@ const Filters = ({ filters, setFilters, categories }) => {
   return (
     <div className={classes.filtersContainer}>
       <h3>Filters</h3>
-
+      <button className={classes.clearButton} onClick={clearFilters}>
+        Clear Filters
+      </button>
       {/* category */}
       <div className={classes.filterGroup}>
         <h4>Category</h4>
