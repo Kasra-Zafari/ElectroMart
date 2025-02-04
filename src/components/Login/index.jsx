@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import classes from "./index.module.css";
 
 const Login = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [name, setName] = useState("");
     const [captcha, setCaptcha] = useState("");
     const [generatedCaptcha, setGeneratedCaptcha] = useState(generateCaptcha());
@@ -19,8 +20,10 @@ const Login = () => {
             setGeneratedCaptcha(generateCaptcha());
             return;
         }
+
         localStorage.setItem("userName", name);
-        navigate("/");
+
+        navigate(location.state?.from || "/");
     };
 
     return (

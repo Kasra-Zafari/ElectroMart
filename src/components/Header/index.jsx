@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import classes from "./index.module.css";
 
 const Header = () => {
     const { cart } = useCart();
     const navigate = useNavigate();
+    const location = useLocation();
     const [userName, setUserName] = useState("");
 
     useEffect(() => {
@@ -42,7 +43,9 @@ const Header = () => {
                         </div>
                     </div>
                 ) : (
-                    <button onClick={() => navigate("/login")}>Login</button>
+                    <button onClick={() => navigate("/login", { state: { from: location.pathname } })}>
+                        Login
+                    </button>
                 )}
             </div>
         </header>
