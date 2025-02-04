@@ -12,7 +12,6 @@ const Cart = () => {
         <div className={classes.cartPage}>
             <div className={classes.headerContainer}>
                 <h1>Your Cart</h1>
-                {/* دکمه Clear Cart فقط زمانی نمایش داده می‌شود که سبد خرید پر باشد */}
                 {cart.length > 0 && (
                     <button onClick={clearCart} className={classes.clearCartButton}>
                         Clear Cart
