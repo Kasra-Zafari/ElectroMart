@@ -1,16 +1,16 @@
-// import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
+import { UserProvider } from "./context/UserContext";
+import Layout from "./components/Layout";
 import HomePage from "./components/HomePage";
 import Products from "./components/Products";
 import ProductDetail from "./components/ProductDetail";
-import Layout from "./components/Layout";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./context/CartContext"
 import Cart from "./components/Cart";
 import Login from "./components/Login";
 
 function App() {
   return (
-    <>
+    <UserProvider>
       <CartProvider>
         <BrowserRouter>
           <Layout>
@@ -24,7 +24,7 @@ function App() {
           </Layout>
         </BrowserRouter>
       </CartProvider>
-    </>
+    </UserProvider>
   );
 }
 

@@ -1,23 +1,14 @@
-import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
+import { useUser } from "../../context/UserContext";
 import classes from "./index.module.css";
 
 const Header = () => {
     const { cart } = useCart();
+    const { userName, logout } = useUser();
+
     const navigate = useNavigate();
     const location = useLocation();
-    const [userName, setUserName] = useState("");
-
-    useEffect(() => {
-        const storedUser = localStorage.getItem("userName");
-        if (storedUser) setUserName(storedUser);
-    }, []);
-
-    const handleLogout = () => {
-        localStorage.removeItem("userName");
-        setUserName("");
-    };
 
     return (
         <header className={classes.header}>
@@ -39,7 +30,7 @@ const Header = () => {
                     <div className={classes.userMenu}>
                         <button className={classes.userButton}>{userName}</button>
                         <div className={classes.dropdown}>
-                            <button onClick={handleLogout}>Logout</button>
+                            <button onClick={logout}>Logout</button>
                         </div>
                     </div>
                 ) : (
