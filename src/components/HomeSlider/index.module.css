@@ -19,10 +19,10 @@
   
   .button {
     position: absolute;
-    bottom: 10%;
-    left: 50%;
+    bottom: 15%;
+    right: 18%;
     transform: translateX(-50%);
-    background-color: #ff6600;
+    background-color: black;
     color: white;
     border: none;
     padding: 10px 20px;
