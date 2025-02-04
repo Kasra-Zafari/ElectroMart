@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext"
 import Cart from "./components/Cart";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path="/products" element={<Products />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
           </Layout>
         </BrowserRouter>
