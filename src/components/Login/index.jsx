@@ -24,7 +24,6 @@ const Login = () => {
         }
 
         login(name);
-
         navigate(location.state?.from || "/");
     };
 
@@ -50,7 +49,7 @@ const Login = () => {
                     onChange={(e) => setCaptcha(e.target.value)}
                     required
                 />
-                <button type="submit">Login</button>
+                <button className={classes.loginButton} type="submit">Login</button>
             </form>
         </div>
     );

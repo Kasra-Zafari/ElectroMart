@@ -53,7 +53,7 @@ nav button:hover {
     display: inline-block;
 }
 
-.userButton {
+/* .userButton {
     background-color: inherit;
     color: white;
     padding: 10px 15px;
@@ -61,7 +61,7 @@ nav button:hover {
     cursor: pointer;
     font-size: 16px;
     border: 1px solid white;
-}
+} */
 
 .userButton:hover {
     color: #ffa200;
@@ -95,4 +95,19 @@ nav button:hover {
 
 .dropdown button:hover {
     background-color: #555;
+}
+
+.loginButton {
+    background-color: inherit;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.loginButton:hover {
+    color: #ffa200;
+    border-color: #ffa200;
 }

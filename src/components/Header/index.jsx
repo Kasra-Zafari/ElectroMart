@@ -28,15 +28,16 @@ const Header = () => {
                 </Link>
                 {userName ? (
                     <div className={classes.userMenu}>
-                        <button className={classes.userButton}>{userName}</button>
+                        <button className={classes.loginButton}>{userName}</button>
                         <div className={classes.dropdown}>
                             <button onClick={logout}>Logout</button>
                         </div>
                     </div>
                 ) : (
-                    <button onClick={() => navigate("/login", { state: { from: location.pathname } })}>
+                    <button className={classes.loginButton} onClick={() => navigate("/login", { state: { from: location.pathname } })}>
                         Login
                     </button>
+
                 )}
             </div>
         </header>
