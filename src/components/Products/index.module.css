@@ -1,12 +1,12 @@
 .products {
     background-color: #ffffff;
-    /* min-height: 70vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 0 20px 40px;
     flex-grow: 1;
+    width: 100%;
 }
 
 .productsGrid {
@@ -17,7 +17,7 @@
     max-width: 1300px;
     margin-top: 20px;
     flex-wrap: wrap;
-  }
+}
 
 .productCard {
     padding: 20px;
@@ -29,7 +29,7 @@
     overflow: hidden;
     background-color: white;
     min-width: 260px;
-  }
+}
 
 .productCard:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
@@ -51,7 +51,6 @@
     font-size: .8rem;
     color: #343131;
     margin: 15px 0 10px;
-    /* font-weight: bold; */
     height: 20px;
 }
 
@@ -70,14 +69,12 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     margin-top: 10px;
-    /* background-color: #ffffff; */
 }
 
 .button:hover {
     color: #ffa200;
     border-color: #ffa200;
 }
-
 
 .loadingContainer {
     display: flex;
@@ -108,17 +105,68 @@
     margin: 20px;
 }
 
-
 .mainContainer {
     display: flex;
     gap: 10px;
     max-width: 1400px;
     margin: 0 auto;
-  }
+    width: 100%;
+}
 
 .filtersContainer {
     width: 350px;
     position: sticky;
     top: 20px;
     height: fit-content;
+}
+
+@media (max-width: 1024px) {
+    .productsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .filtersContainer {
+        width: 270px;
+    }
+
+    .productCard {
+        min-width: 240px;
+    }
+
+    .topBar {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .productsGrid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .filtersContainer {
+        width: 100%;
+    }
+
+    .mainContainer {
+        flex-direction: column;
+    }
+
+    .productCard {
+        min-width: 100%;
+    }
+
+    .productTitle {
+        font-size: 1rem;
+    }
+
+    .price {
+        font-size: 1.2rem;
+    }
+
+    .button {
+        font-size: 1rem;
+    }
 }

@@ -1,5 +1,6 @@
 .filtersContainer {
   width: 270px;
+  min-width: 200px;
   padding: 16px;
   background: #fff;
   border-radius: 8px;
@@ -183,4 +184,3 @@
     color: #ffa200;
     border-color: #ffa200;
   }
-  
