@@ -1,14 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import classes from "./index.module.css";
 
 const Filters = ({ filters, setFilters, categories }) => {
+  const location = useLocation();
   const [brands, setBrands] = useState([]);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedBrands, setSelectedBrands] = useState([]);
-  const [priceRange, setPriceRange] = useState([0, 1000]);
-  const [inStock, setInStock] = useState(false);
-  const [hasDiscount, setHasDiscount] = useState(false);
-  const [rating, setRating] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState(
+    JSON.parse(localStorage.getItem("selectedCategories")) || []
+  );
+  const [selectedBrands, setSelectedBrands] = useState(
+    JSON.parse(localStorage.getItem("selectedBrands")) || []
+  );
+  const [priceRange, setPriceRange] = useState(
+    JSON.parse(localStorage.getItem("priceRange")) || [0, 1000]
+  );
+  const [inStock, setInStock] = useState(
+    JSON.parse(localStorage.getItem("inStock")) || false
+  );
+  const [hasDiscount, setHasDiscount] = useState(
+    JSON.parse(localStorage.getItem("hasDiscount")) || false
+  );
+  const [rating, setRating] = useState(
+    JSON.parse(localStorage.getItem("rating")) || null
+  );
 
   useEffect(() => {
     // get brand
@@ -29,7 +43,26 @@ const Filters = ({ filters, setFilters, categories }) => {
       discount: hasDiscount,
       rating,
     });
+
+    //localStorage
+    localStorage.setItem("selectedCategories", JSON.stringify(selectedCategories));
+    localStorage.setItem("selectedBrands", JSON.stringify(selectedBrands));
+    localStorage.setItem("priceRange", JSON.stringify(priceRange));
+    localStorage.setItem("inStock", JSON.stringify(inStock));
+    localStorage.setItem("hasDiscount", JSON.stringify(hasDiscount));
+    localStorage.setItem("rating", JSON.stringify(rating));
   }, [selectedCategories, selectedBrands, priceRange, inStock, hasDiscount, rating]);
+
+  useEffect(() => {
+    return () => {
+      localStorage.removeItem("selectedCategories");
+      localStorage.removeItem("selectedBrands");
+      localStorage.removeItem("priceRange");
+      localStorage.removeItem("inStock");
+      localStorage.removeItem("hasDiscount");
+      localStorage.removeItem("rating");
+    };
+  }, [location.pathname]);
 
   // price
   const handlePriceChange = (e) => {
@@ -55,6 +88,7 @@ const Filters = ({ filters, setFilters, categories }) => {
             <input
               type="checkbox"
               value={category}
+              checked={selectedCategories.includes(category)}
               onChange={(e) => {
                 const value = e.target.value;
                 setSelectedCategories((prev) =>
@@ -75,6 +109,7 @@ const Filters = ({ filters, setFilters, categories }) => {
             <input
               type="checkbox"
               value={brand}
+              checked={selectedBrands.includes(brand)}
               onChange={(e) => {
                 const value = e.target.value;
                 setSelectedBrands((prev) =>

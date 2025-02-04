@@ -11,12 +11,13 @@
 
 .productsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px;
     width: 100%;
     max-width: 1300px;
     margin-top: 20px;
-}
+    flex-wrap: wrap;
+  }
 
 .productCard {
     padding: 20px;
@@ -27,7 +28,8 @@
     position: relative;
     overflow: hidden;
     background-color: white;
-}
+    min-width: 260px;
+  }
 
 .productCard:hover {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
@@ -109,10 +111,10 @@
 
 .mainContainer {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     max-width: 1400px;
     margin: 0 auto;
-}
+  }
 
 .filtersContainer {
     width: 350px;
