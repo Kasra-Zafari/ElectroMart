@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import classes from "./index.module.css";
 import { useCart } from "../../context/CartContext";
+import ProductTabs from "../ProductTabs";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -28,7 +29,7 @@ const ProductDetail = () => {
       <div className={classes.loadingContainer}>
         <div className={classes.loadingSpinner}></div>
       </div>
-    )
+    );
   }
 
   if (error) {
@@ -81,6 +82,7 @@ const ProductDetail = () => {
           </button>
         )}
       </div>
+      <ProductTabs productId={id} />
     </div>
   );
 };

@@ -1,27 +1,169 @@
 .home {
     background-color: #fafafa;
-    /* height: 70vh; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
     /* padding: 20px; */
-}
-
-.home h1 {
+  }
+  
+  .home h1 {
     font-size: 2.5rem;
     color: #333;
-    margin:300px 0 2000px 0;
+    margin: 300px 0 2000px 0;
     font-weight: bold;
     text-transform: uppercase;
-}
-
-.home p {
+  }
+  
+  .home p {
     font-size: 1.2rem;
     color: #555;
     margin-top: 0;
     font-weight: 500;
     line-height: 1.6;
     max-width: 600px;
-}
+  }
+  
+  /* Categories Section */
+  .categories {
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    margin-top: 50px;
+    width: 100%;
+  }
+  
+  .categoryCard {
+    width: 200px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .categoryCard img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .categoryCard h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 15px;
+  }
+  
+  .categoryCard a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 600;
+  }
+  
+  /* Product Section */
+  .productsGrid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+  
+  .productCard {
+    width: 220px;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .productCard img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .productCard h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 15px;
+  }
+  
+  .productCard p {
+    color: #777;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  .productCard button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .productCard button:hover {
+    background-color: #218838;
+  }
+  
+  /* Testimonial Section */
+  .testimonialSlider {
+    margin-top: 60px;
+    padding: 40px 0;
+    background-color: #f8f9fa;
+  }
+  
+  .testimonialSlider h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .testimonial p {
+    font-size: 1.2rem;
+    color: #555;
+    font-style: italic;
+  }
+  
+  .testimonial p:last-child {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Benefits Section */
+  .benefits {
+    margin-top: 60px;
+    text-align: center;
+  }
+  
+  .benefits h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .benefits ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .benefits li {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
