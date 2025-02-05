@@ -28,7 +28,7 @@ const Contact = () => {
         <ul>
           <li><strong>Name:</strong> Kasra Zafari</li>
           <li><strong>Phone:</strong> +98 912 517 0656</li>
-          <li><strong>Email:</strong> kasra@example.com</li>
+          <li><strong>Email:</strong> zafari.kasra@gmail.com</li>
           <li><strong>GitHub:</strong> <a href="https://github.com/Kasra-Zafari" target="_blank" rel="noopener noreferrer">Click here</a></li>
           <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kasra-zafari-2695a2298/" target="_blank" rel="noopener noreferrer">Click here</a></li>
         </ul>
