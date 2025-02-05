@@ -7,6 +7,7 @@ import Products from "./components/Products";
 import ProductDetail from "./components/ProductDetail";
 import Cart from "./components/Cart";
 import Login from "./components/Login";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </Layout>
         </BrowserRouter>
