@@ -1,16 +1,19 @@
 .productDetail {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* دو ستون برای عکس و مشخصات */
-    grid-template-rows: auto 1fr;  /* سطر اول برای عکس و مشخصات، سطر دوم برای تب‌ها */
-    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
     padding: 50px;
     background-color: #f8f8f8;
+    width: 100%;
 }
 
 .imageContainer {
-    grid-column: 1; /* ستون اول */
-    grid-row: 1;    /* سطر اول */
-    max-width: 500px;
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
 }
 
 .image {
@@ -20,8 +23,8 @@
 }
 
 .detailsContainer {
-    grid-column: 2; /* ستون دوم */
-    grid-row: 1;    /* سطر اول */
+    grid-column: 2;
+    grid-row: 1;
     background-color: white;
     padding: 30px;
     border-radius: 10px;
@@ -141,10 +144,9 @@
     animation: spin 1s linear infinite;
 }
 
-/* تنظیم تب‌ها در سطر دوم */
 .productTabs {
-    grid-column: 1 / -1; /* تمام عرض گرید */
-    grid-row: 2;         /* سطر دوم */
+    grid-column: 1 / -1;
+    grid-row: 2;
     width: 100%;
     background-color: white;
     padding: 20px;
@@ -152,10 +154,10 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* تنظیم برای موبایل */
+
 @media screen and (max-width: 768px) {
     .productDetail {
-        grid-template-columns: 1fr; /* یک ستون برای موبایل */
+        grid-template-columns: 1fr;
     }
 
     .imageContainer, .detailsContainer {
@@ -164,5 +166,28 @@
 
     .productTabs {
         margin-top: 20px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .productDetail {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .imageContainer {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .detailsContainer {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .productTabs {
+        grid-column: 1;
+        grid-row: 3;
     }
 }

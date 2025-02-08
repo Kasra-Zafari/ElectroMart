@@ -82,7 +82,9 @@ const ProductDetail = () => {
           </button>
         )}
       </div>
-      <ProductTabs productId={id} />
+      <div className={classes.productTabs}>
+        <ProductTabs productId={id} className={classes.productTabs} />
+      </div>
     </div>
   );
 };
