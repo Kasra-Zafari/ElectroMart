@@ -32,7 +32,7 @@ h1 {
 .tableHeader span {
     padding-bottom: 8px;
     margin: 0 4rem;
-    border-bottom: 3px solid #ffa200;
+    border-bottom: 3px solid #343131;
 }
 
 .cartRow {
@@ -54,7 +54,7 @@ h1 {
     height: 65px;
     object-fit: cover;
     border-radius: 8px;
-    border: 2px solid #ffa200;
+    border: 2px solid #343131;
 }
 
 .productTitle {
@@ -71,8 +71,8 @@ h1 {
 }
 
 .quantityControls button {
-    background: #ffa200;
-    color: white;
+    /* background: #ffa200; */
+    color: #343131;
     border: none;
     width: 35px;
     height: 35px;
@@ -88,7 +88,7 @@ h1 {
 }
 
 .quantityControls button:hover {
-    background: #e69500;
+    color: #e69500;
     transform: scale(1.1);
 }
 
@@ -102,8 +102,7 @@ h1 {
 }
 
 .trashButton {
-    background: #ff4d4d;
-    color: white;
+    color: #343131;
     border: none;
     width: 35px;
     height: 35px;
@@ -117,8 +116,7 @@ h1 {
 }
 
 .trashButton:hover {
-    background: #cc0000;
-    transform: scale(1.1);
+    background: #ffa200;
 }
 
 .cartRow p {
@@ -156,25 +154,28 @@ h1 {
 }
 
 .checkoutButton {
-    background: #28a745;
-    color: white;
-    border: none;
+    /* background: #dc3545; */
+    color: #343131;
+    border: 1px solid #343131;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
+    margin-bottom: 10px;
+    display: flex;
 }
 
 .checkoutButton:hover {
-    background: #218838;
+    color: #ffa200;
+    border-color: #ffa200;
 }
 
 .clearCartButton {
-    background: #dc3545;
-    color: white;
-    border: none;
+    /* background: #dc3545; */
+    color: #343131;
+    border: 1px solid #343131;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
@@ -186,7 +187,8 @@ h1 {
 }
 
 .clearCartButton:hover {
-    background: #c82333;
+    color: #ffa200;
+    border-color: #ffa200;
 }
 
 .emptyCart {
