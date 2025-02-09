@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import classes from "./index.module.css";
 import SearchBar from "../SearchBar";
 import Sort from "../Sort";
 import Filters from "../Filters";
 
 const Products = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const selectedCategory = queryParams.get("category");
+
   const [products, setProducts] = useState([]);
   const [categoriesWithProducts, setCategoriesWithProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -13,22 +17,21 @@ const Products = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("default");
 
-  // filter state
+  // filter
   const [filters, setFilters] = useState({
-    categories: [],
+    categories: selectedCategory ? [selectedCategory] : [],
     brands: [],
     priceRange: [0, 1000],
     inStock: false,
     discount: false,
-    // rating: null,
   });
 
   useEffect(() => {
-    fetch('https://dummyjson.com/products')
+    fetch("https://dummyjson.com/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data.products);
-        const categories = [...new Set(data.products.map(product => product.category))];
+        const categories = [...new Set(data.products.map((product) => product.category))];
         setCategoriesWithProducts(categories);
         setIsLoading(false);
       })
@@ -38,7 +41,16 @@ const Products = () => {
       });
   }, []);
 
-  // filter
+  useEffect(() => {
+    if (selectedCategory) {
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        categories: [selectedCategory],
+      }));
+    }
+  }, [selectedCategory]);
+
+  // products filter 
   const filteredProducts = products
     .filter((product) =>
       product.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -58,10 +70,6 @@ const Products = () => {
     .filter((product) =>
       !filters.discount || product.discountPercentage > 0
     )
-    // .filter((product) =>
-    //   filters.rating === null || Math.round(product.rating) === filters.rating
-    // )
-    // sort
     .sort((a, b) => {
       if (sortOption === "new") return b.id - a.id;
       if (sortOption === "price-low") return a.price - b.price;
@@ -82,11 +90,7 @@ const Products = () => {
         <Filters filters={filters} setFilters={setFilters} categories={categoriesWithProducts} />
 
         <div className={classes.products}>
-          {isLoading && (
-            <div className={classes.loadingContainer}>
-              <div className={classes.loadingSpinner}></div>
-            </div>
-          )}
+          {isLoading && <div className={classes.loadingSpinner}></div>}
 
           {error && <h2>{error}</h2>}
 

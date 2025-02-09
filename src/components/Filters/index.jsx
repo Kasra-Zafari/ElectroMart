@@ -25,7 +25,6 @@ const Filters = ({ filters, setFilters, categories }) => {
   );
 
   useEffect(() => {
-    // get brand
     fetch("https://dummyjson.com/products?select=brand")
       .then((res) => res.json())
       .then((data) => {
@@ -44,7 +43,6 @@ const Filters = ({ filters, setFilters, categories }) => {
       rating,
     });
 
-    //localStorage
     localStorage.setItem("selectedCategories", JSON.stringify(selectedCategories));
     localStorage.setItem("selectedBrands", JSON.stringify(selectedBrands));
     localStorage.setItem("priceRange", JSON.stringify(priceRange));
@@ -72,7 +70,6 @@ const Filters = ({ filters, setFilters, categories }) => {
     setHasDiscount(false);
     setRating(null);
 
-    // clear localStorage
     localStorage.removeItem("selectedCategories");
     localStorage.removeItem("selectedBrands");
     localStorage.removeItem("priceRange");
@@ -81,7 +78,6 @@ const Filters = ({ filters, setFilters, categories }) => {
     localStorage.removeItem("rating");
   };
 
-  // price
   const handlePriceChange = (e) => {
     const value = Number(e.target.value);
     const [min, max] = priceRange;
@@ -96,9 +92,11 @@ const Filters = ({ filters, setFilters, categories }) => {
   return (
     <div className={classes.filtersContainer}>
       <h3>Filters</h3>
+
       <button className={classes.clearButton} onClick={clearFilters}>
         Clear Filters
       </button>
+
       {/* category */}
       <div className={classes.filterGroup}>
         <h4>Category</h4>
@@ -183,12 +181,18 @@ const Filters = ({ filters, setFilters, categories }) => {
         </label>
       </div>
 
-      {/* rate */}
+      {/* Rate */}
       {/* <div className={classes.filterGroup}>
         <h4>Customer Rating</h4>
         {[5, 4, 3, 2, 1].map((star) => (
           <label key={star}>
-            <input type="radio" name="rating" value={star} onChange={() => setRating(star)} />
+            <input
+              type="radio"
+              name="rating"
+              value={star}
+              checked={rating === star}
+              onChange={() => setRating(star)}
+            />
             {star} ⭐ & up
           </label>
         ))}
