@@ -21,6 +21,7 @@ const Header = () => {
                 <Link to="/"><button>Home</button></Link>
                 <Link to="/products"><button>Products</button></Link>
                 <Link to="/contact"><button>Contact Us</button></Link>
+                <Link to="/about"><button>About Us</button></Link>
             </nav>
             <div className={classes.cartContainer}>
                 <Link to="/cart">

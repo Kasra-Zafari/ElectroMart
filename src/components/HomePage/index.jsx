@@ -3,10 +3,10 @@ import classes from "./index.module.css";
 import { Link } from "react-router-dom";
 
 const categories = [
-  { name: "Beauty", image: "/images/beauty.jpg" },
-  { name: "Fragrances", image: "/images/fragrances.jpg" },
-  { name: "Furniture", image: "/images/furniture.jpg" },
-  { name: "Groceries", image: "/images/groceries.jpg" },
+  { name: "Beauty", image: "vite.svg" },
+  { name: "Fragrances", image: "vite.svg" },
+  { name: "Furniture", image: "vite.svg" },
+  { name: "Groceries", image: "vite.svg" },
 ];
 
 const HomePage = () => {
