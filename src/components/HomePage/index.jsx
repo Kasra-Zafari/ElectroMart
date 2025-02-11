@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import HomeSlider from "../HomeSlider";
 import classes from "./index.module.css";
+import { Link } from "react-router-dom";
 
 const categories = [
   { name: "Beauty", image: "/images/beauty.jpg" },

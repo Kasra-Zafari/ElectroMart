@@ -90,7 +90,11 @@ const Products = () => {
         <Filters filters={filters} setFilters={setFilters} categories={categoriesWithProducts} />
 
         <div className={classes.products}>
-          {isLoading && <div className={classes.loadingSpinner}></div>}
+        {isLoading && (
+            <div className={classes.loadingContainer}>
+              <div className={classes.loadingSpinner}></div>
+            </div>
+          )}
 
           {error && <h2>{error}</h2>}
 

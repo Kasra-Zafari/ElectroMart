@@ -94,7 +94,7 @@ const Filters = ({ filters, setFilters, categories }) => {
       <h3>Filters</h3>
 
       <button className={classes.clearButton} onClick={clearFilters}>
-        Clear Filters
+        All Products
       </button>
 
       {/* category */}
