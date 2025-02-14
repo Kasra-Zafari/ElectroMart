@@ -19,11 +19,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 100px;
+    /* margin-right: 150px; */
 }
 
 .logo img {
-    width: 300px;
+    width: 200px;
 }
 
 .navLinks {

@@ -45,8 +45,12 @@ const ProductDetail = () => {
       </div>
       <div className={classes.detailsContainer}>
         <h1 className={classes.title}>{product.title}</h1>
+        <p className={classes.description}>Code: {product.sku}</p>
+        <p className={classes.description}>Category: {product.category}</p>
+        <p className={classes.description}>Brand: {product.brand}</p>
+        <p className={classes.description}>Dimensions: {product.dimensions.width}*{product.dimensions.height}*{product.dimensions.depth} mm</p>
         <p className={classes.price}>${product.price}</p>
-        <p className={classes.description}>{product.description}</p>
+        {/* <p className={classes.description}>{product.description}</p> */}
 
         {cartItem ? (
           <div className={classes.quantityControls}>
