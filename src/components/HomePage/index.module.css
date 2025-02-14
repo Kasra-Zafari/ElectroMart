@@ -30,12 +30,12 @@
     display: flex;
     gap: 20px;
     justify-content: space-around;
-    margin-top: 50px;
+    margin: 50px;
     width: 100%;
   }
   
   .categoryCard {
-    width: 200px;
+    width: 20%;
     text-align: center;
     background-color: #fff;
     padding: 20px;
