@@ -6,7 +6,11 @@ const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
   const handleInputChange = (e) => {
-    setQuery(e.target.value);
+    const value = e.target.value;
+    setQuery(value);
+    if (value === "") {
+      onSearch("");
+    }
   };
 
   const handleSearchClick = () => {
@@ -18,6 +22,12 @@ const SearchBar = ({ onSearch }) => {
     onSearch("");
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearchClick();
+    }
+  };
+
   return (
     <div className={classes.searchContainer}>
       <div className={classes.inputWrapper}>
@@ -27,6 +37,7 @@ const SearchBar = ({ onSearch }) => {
           placeholder="Search for products..."
           value={query}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
         />
         {query && (
           <button className={classes.clearButton} onClick={handleClearSearch}>
