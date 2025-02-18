@@ -79,11 +79,10 @@
   
   .benefits {
     display: flex;
-    justify-content: space-between;
     gap: 20px;
-    margin: 50px auto;
-    flex-wrap: wrap;
-    max-width: 1200px;
+    justify-content: space-evenly;
+    margin: 50px;
+    width: 100%;
   }
   
   .benefitCard {
@@ -119,11 +118,10 @@
 
   .reviews {
     display: flex;
-    justify-content: space-between;
     gap: 20px;
-    margin: 50px auto;
-    flex-wrap: wrap;
-    max-width: 1200px;
+    justify-content: space-evenly;
+    margin: 50px;
+    width: 100%;
   }
   
   .reviewCard {
