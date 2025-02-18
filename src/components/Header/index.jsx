@@ -8,6 +8,7 @@ const Header = () => {
     const { userName, logout } = useUser();
     const navigate = useNavigate();
     const location = useLocation();
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
     const menuItems = [
         { name: "Home", path: "/" },
@@ -34,7 +35,7 @@ const Header = () => {
             </nav>
             <div className={classes.cartContainer}>
                 <Link to="/cart">
-                    <button className={classes.cartButton}>🛒 Cart ({cart.length})</button>
+                    <button className={classes.cartButton}>🛒 Cart <span>{totalItems}</span></button>
                 </Link>
                 {userName ? (
                     <div className={classes.userMenu}>
