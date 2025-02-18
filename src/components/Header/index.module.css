@@ -111,3 +111,7 @@ nav button:hover {
     color: #ffa200;
     border-color: #ffa200;
 }
+
+.active button {
+    color: #ffa200;
+}

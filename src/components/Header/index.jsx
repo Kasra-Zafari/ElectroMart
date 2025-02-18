@@ -6,9 +6,17 @@ import classes from "./index.module.css";
 const Header = () => {
     const { cart } = useCart();
     const { userName, logout } = useUser();
-
     const navigate = useNavigate();
     const location = useLocation();
+
+    const menuItems = [
+        { name: "Home", path: "/" },
+        { name: "Products", path: "/products" },
+        { name: "Contact Us", path: "/contact" },
+        { name: "About Us", path: "/about" }
+    ];
+
+    const isActive = (path) => location.pathname === path ? classes.active : "";
 
     return (
         <header className={classes.header}>
@@ -18,10 +26,11 @@ const Header = () => {
                 </Link>
             </div>
             <nav>
-                <Link to="/"><button>Home</button></Link>
-                <Link to="/products"><button>Products</button></Link>
-                <Link to="/contact"><button>Contact Us</button></Link>
-                <Link to="/about"><button>About Us</button></Link>
+                {menuItems.map(({ name, path }) => (
+                    <Link key={path} to={path} className={isActive(path)}>
+                        <button>{name}</button>
+                    </Link>
+                ))}
             </nav>
             <div className={classes.cartContainer}>
                 <Link to="/cart">
@@ -38,7 +47,6 @@ const Header = () => {
                     <button className={classes.loginButton} onClick={() => navigate("/login", { state: { from: location.pathname } })}>
                         Login
                     </button>
-
                 )}
             </div>
         </header>
