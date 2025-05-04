@@ -12,7 +12,7 @@ import user3Image from '../img/user3.jpg';
 
 
 const categories = [
-  { name: "Beauty", image: "src/img/category-beauty.jpg" },
+  { name: "Beauty", image: categoryBeautyImage },
   { name: "Fragrances", image: "src/img/category-fragrances.jpg" },
   { name: "Furniture", image: "src/img/category-furniture.jpg" },
   { name: "Groceries", image: "src/img/category-groceries.jpg" },
