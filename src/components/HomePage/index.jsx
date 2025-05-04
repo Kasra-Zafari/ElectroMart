@@ -2,6 +2,15 @@ import HomeSlider from "../HomeSlider";
 import classes from "./index.module.css";
 import { Link } from "react-router-dom";
 
+import categoryBeautyImage from '../img/category-beauty.jpg';
+import categoryFragrancesImage from '../img/category-fragrances.jpg';
+import categoryFurnitureImage from '../img/category-furniture.jpg';
+import categoryGroceriesImage from '../img/category-groceries.jpg';
+import user1Image from '../img/user1.jpg';
+import user2Image from '../img/user2.jpg';
+import user3Image from '../img/user3.jpg';
+
+
 const categories = [
   { name: "Beauty", image: "src/img/category-beauty.jpg" },
   { name: "Fragrances", image: "src/img/category-fragrances.jpg" },
