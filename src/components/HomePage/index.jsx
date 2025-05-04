@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const categories = [
   { name: "Beauty", image: "img/category-beauty.jpg" },
-  { name: "Fragrances", image: "src/img/category-fragrances.jpg" },
-  { name: "Furniture", image: "src/img/category-furniture.jpg" },
-  { name: "Groceries", image: "src/img/category-groceries.jpg" },
+  { name: "Fragrances", image: "img/category-fragrances.jpg" },
+  { name: "Furniture", image: "img/category-furniture.jpg" },
+  { name: "Groceries", image: "img/category-groceries.jpg" },
 ];
 
 const benefits = [
@@ -20,17 +20,17 @@ const reviews = [
   {
     name: "John Doe",
     comment: "Great shopping experience! Fast delivery and excellent support.",
-    image: "src/img/user1.jpg",
+    image: "img/user1.jpg",
   },
   {
     name: "Sarah Smith",
     comment: "Loved the quality of the products. Highly recommended!",
-    image: "src/img/user2.jpg",
+    image: "img/user2.jpg",
   },
   {
     name: "Michael Johnson",
     comment: "Superb service and easy returns. Will shop again!",
-    image: "src/img/user3.jpg",
+    image: "img/user3.jpg",
   },
 ];
 
